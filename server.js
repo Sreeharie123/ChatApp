@@ -8,6 +8,7 @@ const {userJoin,getCurrentUser,userLeave,getRoomUser}=require('./utils/user')
 const app=express(); 
 const server=http.createServer(app)  
 const io=socketio(server);
+const hostname='0.0.0.0'
 
 
 const botName="chatAppBot"
@@ -68,7 +69,7 @@ io.on('connection',socket=>{
 
 const PORT=3000||process.env.PORT;
 
-server.listen(PORT,()=>{
+server.listen(PORT,hostname,()=>{
     console.log("Server running on port :",PORT)
 }) 
  
